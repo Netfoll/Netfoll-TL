@@ -47,7 +47,7 @@ class TempWorkDir:
 API_REF_URL = 'https://tl.telethon.dev/'
 
 GENERATOR_DIR = Path('telethon_generator')
-LIBRARY_DIR = Path('telethon')
+LIBRARY_DIR = Path('netfoll_tl')
 
 ERRORS_IN = GENERATOR_DIR / 'data/errors.csv'
 ERRORS_OUT = LIBRARY_DIR / 'errors/rpcerrorlist.py'
@@ -179,12 +179,12 @@ def main(argv):
 
         # Try importing the telethon module to assert it has no errors
         try:
-            import telethon
+            import netfoll_tl
         except:
             print('Packaging for PyPi aborted, importing the module failed.')
             return
 
-        remove_dirs = ['__pycache__', 'build', 'dist', 'Telethon.egg-info']
+        remove_dirs = ['__pycache__', 'build', 'dist', 'Netfoll_TL.egg-info']
         for root, _dirs, _files in os.walk(LIBRARY_DIR, topdown=False):
             # setuptools is including __pycache__ for some reason (#1605)
             if root.endswith('/__pycache__'):
@@ -192,10 +192,10 @@ def main(argv):
         for x in remove_dirs:
             shutil.rmtree(x, ignore_errors=True)
 
-        run('python3 setup.py sdist', shell=True)
-        run('python3 setup.py bdist_wheel', shell=True)
+        run('python setup.py sdist', shell=True)
+        run('python setup.py bdist_wheel', shell=True)
         run('twine upload dist/*', shell=True)
-        for x in ('build', 'dist', 'Telethon.egg-info'):
+        for x in ('build', 'dist', 'Netfoll_TL.egg-info'):
             shutil.rmtree(x, ignore_errors=True)
 
     else:
@@ -207,17 +207,17 @@ def main(argv):
         with open('README.rst', 'r', encoding='utf-8') as f:
             long_description = f.read()
 
-        with open('telethon/version.py', 'r', encoding='utf-8') as f:
+        with open('netfoll_tl/version.py', 'r', encoding='utf-8') as f:
             version = re.search(r"^__version__\s*=\s*'(.*)'.*$",
                                 f.read(), flags=re.MULTILINE).group(1)
         setup(
-            name='Telethon',
+            name='Netfoll-TL',
             version=version,
-            description="Full-featured Telegram client library for Python 3",
+            description="Modified Telethon",
             long_description=long_description,
 
-            url='https://github.com/LonamiWebs/Telethon',
-            download_url='https://github.com/LonamiWebs/Telethon/releases',
+            url='https://github.com/yaroslav1734/Netfoll-TL',
+            download_url='https://github.com/yaroslav1734/Netfoll-TL/releases',
 
             author='Lonami Exo',
             author_email='totufals@hotmail.com',

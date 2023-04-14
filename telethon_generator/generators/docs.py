@@ -30,7 +30,7 @@ def get_import_code(tlobject):
     """``TLObject -> from ... import ...``."""
     kind = 'functions' if tlobject.is_function else 'types'
     ns = '.' + tlobject.namespace if tlobject.namespace else ''
-    return 'from telethon.tl.{}{} import {}'\
+    return 'from netfoll_tl.tl.{}{} import {}'\
         .format(kind, ns, tlobject.class_name)
 
 

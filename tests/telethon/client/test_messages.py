@@ -2,7 +2,7 @@ import inspect
 
 import pytest
 
-from telethon import TelegramClient
+from netfoll_tl import TelegramClient
 
 
 @pytest.mark.asyncio

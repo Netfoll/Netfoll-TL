@@ -1,6 +1,6 @@
 import re
 
-from telethon import TelegramClient
+from netfoll_tl import TelegramClient
 
 
 def test_all_methods_present(docs_dir):

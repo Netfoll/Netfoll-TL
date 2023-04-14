@@ -1,6 +1,6 @@
 import pytest
 
-from telethon.tl import types, functions
+from netfoll_tl.tl import types, functions
 
 
 def test_nested_invalid_serialization():

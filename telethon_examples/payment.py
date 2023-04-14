@@ -1,4 +1,4 @@
-from telethon import TelegramClient, events, types, functions
+from netfoll_tl import TelegramClient, events, types, functions
 
 import asyncio
 import logging

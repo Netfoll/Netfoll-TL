@@ -10,7 +10,7 @@ import sys
 import time
 from collections import defaultdict
 
-from telethon import TelegramClient, events
+from netfoll_tl import TelegramClient, events
 
 import logging
 logging.basicConfig(level=logging.WARNING)
